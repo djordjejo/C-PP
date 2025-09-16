@@ -9,6 +9,6 @@ namespace Repository.IRepository
 {
     public interface ICategoryRepository : IRepository<Categories>
     {
-        void Update(Categories entity);
+        Task Update(Categories entity);
     }
 }

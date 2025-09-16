@@ -17,9 +17,13 @@ namespace Repository
             _db = db;
         }
 
-        public void Update(Categories entity)
-        { 
-            _db.Categories.Update(entity);  
+        public async Task Update(Categories entity)
+        {
+            if (entity == null)
+            {
+                throw new InvalidOperationException("Proizvod sa datim ID-om nije pronađen.");
+            }
+            _db.Update(entity);
         }
     }
 }

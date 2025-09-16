@@ -9,7 +9,7 @@ namespace Repository.IRepository
 {
     public interface IProductRepository : IRepository<Products>
     {
-        void Update(Products entity);
+        Task Update(Products entity);
 
     }
 }

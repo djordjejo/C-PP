@@ -1,5 +1,6 @@
 ﻿using Data;
 using Microsoft.EntityFrameworkCore;
+using Models.DTO;
 using Repository.IRepository;
 using System;
 using System.Collections.Generic;
@@ -46,6 +47,7 @@ namespace Repository
                 throw new ArgumentNullException("Prosledjen prazan objekat");
             dbSet.Remove(entity);
         }
+
 
        
     }
