@@ -4,7 +4,7 @@ using Models.DTO;
 using System;
 using System.Windows.Forms;
 using User_interface;
-using User_interface; 
+using System.Net.Http;
 
 namespace User_interface
 {
@@ -19,15 +19,14 @@ namespace User_interface
             var host = Host.CreateDefaultBuilder()
                 .ConfigureServices(services =>
                 {
-                    
                     services.AddHttpClient<IHttpServices<ProductsDTO>, HttpServices<ProductsDTO>>(client =>
                     {
-                        client.BaseAddress = new Uri("https://localhost:7154/");
+                        client.BaseAddress = new Uri("https://localhost:7192");
                     });
 
                     services.AddHttpClient<IHttpServices<CategoriesDTO>, HttpServices<CategoriesDTO>>(client =>
                     {
-                        client.BaseAddress = new Uri("https://localhost:7154/");
+                        client.BaseAddress = new Uri("https://localhost:7192");
                     });
 
                     services.AddSingleton<Form1>();

@@ -15,7 +15,8 @@ namespace User_interface
         public HttpServices(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            _baseEndpoint = $"api/{typeof(T).Name.ToLower().Replace("dto", "")}s"; 
+            var className = typeof(T).Name.ToLower().Replace("dto", "");
+            _baseEndpoint = $"api/{className}";
         }
         public async Task<List<T>> GetAllAsync()
         {

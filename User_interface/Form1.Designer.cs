@@ -30,27 +30,27 @@
         {
             tabControl1 = new TabControl();
             Product = new TabPage();
-            textBox3 = new TextBox();
+            productQuantity = new TextBox();
             label8 = new Label();
-            richTextBox1 = new RichTextBox();
+            productDescription = new RichTextBox();
             label7 = new Label();
             dateTimePicker1 = new DateTimePicker();
             dataGridView1 = new DataGridView();
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            productPrice = new TextBox();
+            productName = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
             tabPage2 = new TabPage();
-            dateTimePicker2 = new DateTimePicker();
-            dataGridView2 = new DataGridView();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
-            textBox6 = new TextBox();
+            UpdateCategories = new Button();
+            dateOfManifacture = new DateTimePicker();
+            CategoriesDataGrid = new DataGridView();
+            DeleteCategories = new Button();
+            AddCategories = new Button();
+            categoryName = new TextBox();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
@@ -58,49 +58,50 @@
             Product.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CategoriesDataGrid).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(Product);
             tabControl1.Controls.Add(tabPage2);
-            tabControl1.Location = new Point(118, 46);
+            tabControl1.Dock = DockStyle.Fill;
+            tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1096, 534);
+            tabControl1.Size = new Size(1367, 648);
             tabControl1.TabIndex = 0;
             // 
             // Product
             // 
-            Product.Controls.Add(textBox3);
+            Product.BackColor = Color.PeachPuff;
+            Product.Controls.Add(productQuantity);
             Product.Controls.Add(label8);
-            Product.Controls.Add(richTextBox1);
+            Product.Controls.Add(productDescription);
             Product.Controls.Add(label7);
             Product.Controls.Add(dateTimePicker1);
             Product.Controls.Add(dataGridView1);
             Product.Controls.Add(button3);
             Product.Controls.Add(button2);
             Product.Controls.Add(button1);
-            Product.Controls.Add(textBox2);
-            Product.Controls.Add(textBox1);
+            Product.Controls.Add(productPrice);
+            Product.Controls.Add(productName);
             Product.Controls.Add(label3);
             Product.Controls.Add(label2);
             Product.Controls.Add(label1);
             Product.Location = new Point(4, 29);
             Product.Name = "Product";
             Product.Padding = new Padding(3);
-            Product.Size = new Size(1088, 501);
+            Product.Size = new Size(1359, 615);
             Product.TabIndex = 0;
             Product.Text = "Products";
-            Product.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // productQuantity
             // 
-            textBox3.Location = new Point(275, 190);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(250, 27);
-            textBox3.TabIndex = 14;
+            productQuantity.Location = new Point(275, 190);
+            productQuantity.Name = "productQuantity";
+            productQuantity.Size = new Size(250, 27);
+            productQuantity.TabIndex = 14;
             // 
             // label8
             // 
@@ -111,13 +112,13 @@
             label8.TabIndex = 13;
             label8.Text = "Quantity";
             // 
-            // richTextBox1
+            // productDescription
             // 
-            richTextBox1.Location = new Point(146, 347);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(379, 80);
-            richTextBox1.TabIndex = 12;
-            richTextBox1.Text = "";
+            productDescription.Location = new Point(146, 347);
+            productDescription.Name = "productDescription";
+            productDescription.Size = new Size(379, 80);
+            productDescription.TabIndex = 12;
+            productDescription.Text = "";
             // 
             // label7
             // 
@@ -141,49 +142,56 @@
             dataGridView1.Location = new Point(583, 68);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(444, 374);
+            dataGridView1.Size = new Size(722, 374);
             dataGridView1.TabIndex = 9;
+            dataGridView1.CellClick += ChooseItem;
             // 
             // button3
             // 
+            button3.BackColor = SystemColors.ActiveCaption;
             button3.Location = new Point(411, 457);
             button3.Name = "button3";
             button3.Size = new Size(94, 29);
             button3.TabIndex = 8;
             button3.Text = "Delete";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
+            button2.BackColor = SystemColors.ActiveCaption;
             button2.Location = new Point(280, 457);
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 7;
             button2.Text = "Update";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
+            button1.BackColor = SystemColors.ActiveCaption;
             button1.Location = new Point(130, 457);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 6;
             button1.Text = "Add";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
-            // textBox2
+            // productPrice
             // 
-            textBox2.Location = new Point(275, 132);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(250, 27);
-            textBox2.TabIndex = 4;
+            productPrice.Location = new Point(275, 132);
+            productPrice.Name = "productPrice";
+            productPrice.Size = new Size(250, 27);
+            productPrice.TabIndex = 4;
             // 
-            // textBox1
+            // productName
             // 
-            textBox1.Location = new Point(275, 68);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(250, 27);
-            textBox1.TabIndex = 3;
+            productName.Location = new Point(275, 68);
+            productName.Name = "productName";
+            productName.Size = new Size(250, 27);
+            productName.TabIndex = 3;
             // 
             // label3
             // 
@@ -214,72 +222,82 @@
             // 
             // tabPage2
             // 
-            tabPage2.Controls.Add(dateTimePicker2);
-            tabPage2.Controls.Add(dataGridView2);
-            tabPage2.Controls.Add(button4);
-            tabPage2.Controls.Add(button5);
-            tabPage2.Controls.Add(button6);
-            tabPage2.Controls.Add(textBox6);
+            tabPage2.BackColor = Color.PeachPuff;
+            tabPage2.Controls.Add(UpdateCategories);
+            tabPage2.Controls.Add(dateOfManifacture);
+            tabPage2.Controls.Add(CategoriesDataGrid);
+            tabPage2.Controls.Add(DeleteCategories);
+            tabPage2.Controls.Add(AddCategories);
+            tabPage2.Controls.Add(categoryName);
             tabPage2.Controls.Add(label4);
             tabPage2.Controls.Add(label5);
             tabPage2.Controls.Add(label6);
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1088, 501);
+            tabPage2.Size = new Size(1359, 615);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Categories";
-            tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker2
+            // UpdateCategories
             // 
-            dateTimePicker2.Location = new Point(270, 214);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(250, 27);
-            dateTimePicker2.TabIndex = 19;
+            UpdateCategories.BackColor = SystemColors.ActiveCaption;
+            UpdateCategories.ForeColor = SystemColors.ActiveCaptionText;
+            UpdateCategories.Location = new Point(260, 337);
+            UpdateCategories.Name = "UpdateCategories";
+            UpdateCategories.Size = new Size(94, 29);
+            UpdateCategories.TabIndex = 20;
+            UpdateCategories.Text = "Update";
+            UpdateCategories.UseVisualStyleBackColor = false;
+            UpdateCategories.Click += UpdateCategories_Click;
             // 
-            // dataGridView2
+            // dateOfManifacture
             // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(601, 78);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.Size = new Size(443, 288);
-            dataGridView2.TabIndex = 18;
+            dateOfManifacture.Location = new Point(270, 214);
+            dateOfManifacture.Name = "dateOfManifacture";
+            dateOfManifacture.Size = new Size(250, 27);
+            dateOfManifacture.TabIndex = 19;
             // 
-            // button4
+            // CategoriesDataGrid
             // 
-            button4.Location = new Point(401, 337);
-            button4.Name = "button4";
-            button4.Size = new Size(94, 29);
-            button4.TabIndex = 17;
-            button4.Text = "Delete";
-            button4.UseVisualStyleBackColor = true;
+            CategoriesDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            CategoriesDataGrid.Location = new Point(601, 78);
+            CategoriesDataGrid.Name = "CategoriesDataGrid";
+            CategoriesDataGrid.RowHeadersWidth = 51;
+            CategoriesDataGrid.Size = new Size(708, 288);
+            CategoriesDataGrid.TabIndex = 18;
+            CategoriesDataGrid.CellClick += ChooseCategory;
             // 
-            // button5
+            // DeleteCategories
             // 
-            button5.Location = new Point(270, 337);
-            button5.Name = "button5";
-            button5.Size = new Size(94, 29);
-            button5.TabIndex = 16;
-            button5.Text = "Update";
-            button5.UseVisualStyleBackColor = true;
+            DeleteCategories.BackColor = SystemColors.ActiveCaption;
+            DeleteCategories.ForeColor = SystemColors.ActiveCaptionText;
+            DeleteCategories.Location = new Point(401, 337);
+            DeleteCategories.Name = "DeleteCategories";
+            DeleteCategories.Size = new Size(94, 29);
+            DeleteCategories.TabIndex = 17;
+            DeleteCategories.Text = "Delete";
+            DeleteCategories.UseVisualStyleBackColor = false;
+            DeleteCategories.Click += DeleteCategories_Click;
             // 
-            // button6
+            // AddCategories
             // 
-            button6.Location = new Point(120, 337);
-            button6.Name = "button6";
-            button6.Size = new Size(94, 29);
-            button6.TabIndex = 15;
-            button6.Text = "Add";
-            button6.UseVisualStyleBackColor = true;
+            AddCategories.BackColor = SystemColors.ActiveCaption;
+            AddCategories.ForeColor = SystemColors.ActiveCaptionText;
+            AddCategories.Location = new Point(120, 337);
+            AddCategories.Name = "AddCategories";
+            AddCategories.Size = new Size(94, 29);
+            AddCategories.TabIndex = 15;
+            AddCategories.Text = "Add";
+            AddCategories.UseVisualStyleBackColor = false;
+            AddCategories.Click += AddCategories_Click;
             // 
-            // textBox6
+            // categoryName
             // 
-            textBox6.Location = new Point(270, 143);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(250, 27);
-            textBox6.TabIndex = 12;
+            categoryName.Location = new Point(270, 143);
+            categoryName.Name = "categoryName";
+            categoryName.Size = new Size(250, 27);
+            categoryName.TabIndex = 12;
             // 
             // label4
             // 
@@ -322,7 +340,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CategoriesDataGrid).EndInit();
             ResumeLayout(false);
         }
 
@@ -330,7 +348,7 @@
 
         private TabControl tabControl1;
         private TabPage Product;
-        private TextBox textBox1;
+        private TextBox productName;
         private Label label3;
         private Label label2;
         private Label label1;
@@ -339,20 +357,21 @@
         private Button button3;
         private Button button2;
         private Button button1;
-        private TextBox textBox2;
-        private DataGridView dataGridView2;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private TextBox textBox6;
+        private TextBox productPrice;
+        private DataGridView CategoriesDataGrid;
+        private Button DeleteCategories;
+        private Button Update;
+        private Button AddCategories;
+        private TextBox categoryName;
         private Label label4;
         private Label label5;
         private Label label6;
         private Label label7;
         private DateTimePicker dateTimePicker1;
-        private RichTextBox richTextBox1;
-        private DateTimePicker dateTimePicker2;
-        private TextBox textBox3;
+        private RichTextBox productDescription;
+        private DateTimePicker dateOfManifacture;
+        private TextBox productQuantity;
         private Label label8;
+        private Button UpdateCategories;
     }
 }
