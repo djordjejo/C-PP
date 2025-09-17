@@ -17,8 +17,10 @@ namespace Models.DTO
 
         public decimal Price { get; set; }
         [Required(ErrorMessage = "Product description is required field")]
-
         public string Description { get; set; }
+        [Required(ErrorMessage = "Product quantity is required field")]
+        public int StockQuantity { get; set; }
+
         [Required]
         public DateTime StartAt { get; set; }
     }
